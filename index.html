@@ -52,7 +52,7 @@
 
   <section id="home">
     <h1>Laundry Lounge</h1>
-    <p>From stains to smiles😊. Experience the difference today!</p>
+    <p>From stains to smiles😊.</p>
   </section>
 
   <section id="services">
@@ -72,6 +72,8 @@
   <section id="pricing">
     <h2>Pricing</h2>
     <button id="resetFilterBtn">Show All Services</button>
+    <input type="text" id="searchInput" placeholder="Search services/cloth type" style="display:block;margin:20px auto;padding:0.5rem 1rem;max-width:300px;width:80%;border:1px solid #ccc;border-radius:6px;">
+
     <div class="pricing-table">
       <table>
         <thead><tr><th>Service</th><th>Clothing Type</th><th>Price</th></tr></thead>
@@ -222,6 +224,32 @@
     services.forEach(service=>{service.addEventListener('click',()=>{filterPricing(service.dataset.service); document.getElementById('pricing').scrollIntoView({behavior:'smooth'});});});
     resetBtn.addEventListener('click',()=>{showAllPricing(); document.getElementById('pricing').scrollIntoView({behavior:'smooth'});});
     showAllPricing();
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+  const filter = this.value.toLowerCase();
+  const rows = document.querySelectorAll('tbody tr');
+  let foundAny = false;
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    if (text.includes(filter)) {
+      row.style.display = '';
+      foundAny = true;
+    } else {
+      row.style.display = 'none';
+    }
+  });
+
+  document.getElementById('resetFilterBtn').style.display = filter ? 'block' : 'none';
+});
+
+document.getElementById('resetFilterBtn').addEventListener('click', function() {
+  document.getElementById('searchInput').value = '';
+  const rows = document.querySelectorAll('tbody tr');
+  rows.forEach(row => row.style.display = '');
+  this.style.display = 'none';
+});
+
   </script>
 </body>
 </html>
