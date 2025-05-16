@@ -5,300 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Laundry Lounge</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    nav {
-      position: fixed;
-      width: 100%;
-      background: #fff;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #007BFF;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav ul li a {
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: #007BFF;
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #007BFF;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    section {
-      padding: 60px 20px;
-      min-height: 100vh;
-    }
-    #home {
-      background: linear-gradient(to right, #6dd5fa, #2980b9);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    #home h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    #home p {
-      font-size: 1.2rem;
-      max-width: 600px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-      color: #333;
-    }
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .service {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      flex: 1 1 250px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      cursor: pointer;
-      user-select: none;
-      outline-offset: 4px;
-    }
-    .service.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .service:hover,
-    .service:focus {
-      background-color: #e6f0ff;
-      box-shadow: 0 4px 12px rgba(0,123,255,0.3);
-    }
-    .service h3 {
-      margin-bottom: 1rem;
-      color: #007BFF;
-    }
-    .pricing-table {
-      max-width: 900px;
-      margin: 0 auto;
-      overflow-x: auto;
-      text-align: left;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    thead {
-      background: #28a745;
-      color: #fff;
-    }
-    th, td {
-      padding: 1rem 1.2rem;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-      min-width: 120px;
-    }
-    tbody tr:hover {
-      background: #f0f8ff;
-    }
-    #resetFilterBtn {
-      display: none;
-      margin: 1rem auto 2rem auto;
-      padding: 0.5rem 1rem;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-      user-select: none;
-      display: block;
-      max-width: 200px;
-      text-align: center;
-    }
-    #resetFilterBtn:hover,
-    #resetFilterBtn:focus {
-      background-color: #0056b3;
-      outline: none;
-    }
-    .contact-info {
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 1.5rem;
-      color: #333;
-    }
-    .contact-info p {
-      margin: 0.4rem 0;
-    }
-    .contact-info a {
-      color: #007BFF;
-      margin: 0 0.3rem;
-      font-size: 1.2rem;
-      vertical-align: middle;
-    }
-    .contact-info img {
-      vertical-align: middle;
-      width: 30px;
-      height: 30px;
-    }
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        position: fixed;
-        top: 60px;
-        right: 0;
-        background: #fff;
-        height: calc(100% - 60px);
-        width: 200px;
-        flex-direction: column;
-        padding-top: 1rem;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-      }
-      nav ul.open {
-        transform: translateX(0);
-      }
-      nav ul li {
-        margin: 1rem 0;
-        text-align: center;
-      }
-      .hamburger {
-        display: flex;
-      }
-      body.menu-open {
-        overflow: hidden;
-      }
-    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    html {scroll-behavior: smooth;}
+    body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333;}
+    nav {position: fixed; width: 100%; background: #fff; padding: 1rem 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: flex-end; align-items: center;}
+    nav ul {list-style: none; display: flex; gap: 1.5rem;}
+    nav ul li a {font-weight: bold; color: #007BFF; text-decoration: none; transition: color 0.3s;}
+    nav ul li a:hover {color: #0056b3;}
+    .hamburger {display: none; flex-direction: column; cursor: pointer; gap: 5px;}
+    .hamburger div {width: 25px; height: 3px; background: #007BFF; border-radius: 2px; transition: all 0.3s ease;}
+    section {padding: 60px 20px;}
+    #home {padding-top: 100px; background: linear-gradient(to right, #6dd5fa, #2980b9); color: #fff; text-align: center;}
+    #home h1 {font-size: 3rem; margin-bottom: 1rem;}
+    #home p {font-size: 1.2rem; max-width: 600px; margin: 0 auto;}
+    h2 {text-align: center; margin-bottom: 1.5rem; font-size: 2rem; color: #333;}
+    .services {display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; max-width: 900px; margin: 0 auto;}
+    .service {background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex: 1 1 250px; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; cursor: pointer;}
+    .service.visible {opacity: 1; transform: translateY(0);}
+    .service h3 {margin-bottom: 1rem; color: #007BFF;}
+    .pricing-table {max-width: 900px; margin: 0 auto; overflow-x: auto; text-align: left;}
+    table {width: 100%; border-collapse: collapse; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background: #fff;}
+    thead {background: #28a745; color: #fff;}
+    th, td {padding: 1rem; text-align: left; border-bottom: 1px solid #ddd;}
+    tbody tr:hover {background: #f0f8ff;}
+    #resetFilterBtn {display: none; margin: 1rem auto; padding: 0.5rem 1rem; background: #007BFF; color: white; border: none; border-radius: 6px; cursor: pointer;}
+    #resetFilterBtn:hover {background: #0056b3;}
+    .contact-info {text-align: center; font-size: 1rem; margin-top: 1.5rem; color: #333;}
+    .contact-info a {color: #007BFF; margin: 0 0.3rem; font-size: 1.2rem; vertical-align: middle;}
+    .contact-info img {vertical-align: middle; width: 30px; height: 30px;}
+    footer {background: #333; color: #fff; text-align: center; padding: 1rem;}
+    @media (max-width: 768px) {nav ul {position: fixed; top: 60px; right: 0; background: #fff; height: 100%; width: 200px; flex-direction: column; padding-top: 1rem; transform: translateX(100%); transition: transform 0.3s ease; box-shadow: -2px 0 5px rgba(0,0,0,0.1);} nav ul li a {padding-left: 1.5rem;} nav ul.open {transform: translateX(0);} .hamburger {display: flex;} body.menu-open {overflow: hidden;}}
   </style>
 </head>
 <body>
   <nav>
-    <div class="logo">Laundry Lounge</div>
-    <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="hamburger">
+      <div></div><div></div><div></div>
     </div>
     <ul>
-      <li><a href="#home" tabindex="0">Home</a></li>
-      <li><a href="#services" tabindex="0">Services</a></li>
-      <li><a href="#pricing" tabindex="0">Pricing</a></li>
-      <li><a href="#contact" tabindex="0">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <section id="home">
     <h1>Laundry Lounge</h1>
-    <p>Your trusted partner for clean, fresh, and neatly folded clothes. Experience the difference today!</p>
+    <p>From stains to smiles😊. Experience the difference today!</p>
   </section>
 
   <section id="services">
     <h2>Our Services</h2>
     <div class="services">
-      <div class="service" data-service="Wash & Fold" tabindex="0" role="button" aria-pressed="false" aria-label="View Wash & Fold pricing">
-        <h3>Wash & Fold</h3>
-        <p>Convenient and efficient washing and folding services for your everyday laundry needs.</p>
-      </div>
-      <div class="service" data-service="Dry Cleaning" tabindex="0" role="button" aria-pressed="false" aria-label="View Dry Cleaning pricing">
-        <h3>Dry Cleaning</h3>
-        <p>Professional dry cleaning for delicate fabrics and special garments.</p>
-      </div>
-      <div class="service" data-service="Ironing" tabindex="0" role="button" aria-pressed="false" aria-label="View Ironing pricing">
-        <h3>Ironing</h3>
-        <p>Crisp and wrinkle-free clothes with our meticulous ironing services.</p>
-      </div>
-      <div class="service" data-service="Pickup & Delivery" tabindex="0" role="button" aria-pressed="false" aria-label="Pickup and Delivery Service info">
-        <h3>Pickup & Delivery</h3>
-        <p>Schedule pickups and deliveries at your convenience, saving you time and effort.</p>
-      </div>
+      <div class="service" data-service="Wash & Fold"><h3>Wash & Fold</h3><p>Quick and efficient everyday laundry service.</p></div>
+      <div class="service" data-service="Dry Cleaning"><h3>Dry Cleaning</h3><p>Delicate fabric care and premium dry cleaning.</p></div>
+      <div class="service" data-service="Ironing"><h3>Ironing</h3><p>Crisp, wrinkle-free, ready-to-wear clothing.</p></div>
+      <div class="service" data-service="Curtain Cleaning"><h3>Curtain Cleaning</h3><p>From curtains pick up to cleaning and fixing them back at home.</p></div>
+      <div class="service" data-service="Saree Polishing"><h3>Saree Polishing</h3><p> From polisihing the saree to ironing with care to make it look like new </p></div>
+      <div class="service" data-service="Shoe Cleaning"><h3>Shoe Cleaning</h3><p> Strugling to clean the shoes? No worries, we are here for you. </p></div>
+      <div class="service" data-service="Pickup & Delivery"><h3>Pickup & Delivery</h3><p>Free doorstep collection and drop service.</p></div>
     </div>
   </section>
 
   <section id="pricing">
     <h2>Pricing</h2>
-    <button id="resetFilterBtn" aria-label="Show all pricing">Show All Services</button>
+    <button id="resetFilterBtn">Show All Services</button>
     <div class="pricing-table">
       <table>
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Clothing Type</th>
-            <th>Price</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Service</th><th>Clothing Type</th><th>Price</th></tr></thead>
         <tbody>
-          <tr data-service="Wash & Fold"><td>Wash & Fold</td><td>T-shirts</td><td>₹30/item</td></tr>
-          <tr data-service="Wash & Fold"><td>Wash & Fold</td><td>Shirts</td><td>₹40/item</td></tr>
-          <tr data-service="Wash & Fold"><td>Wash & Fold</td><td>Pants</td><td>₹50/item</td></tr>
-          <tr data-service="Wash & Fold"><td>Wash & Fold</td><td>Others</td><td>₹50/kg</td></tr>
-
+          <tr data-service="Wash & Fold"><td>Wash & Fold</td><td>T-shirts</td><td>₹60/KG</td></tr>
           <tr data-service="Dry Cleaning"><td>Dry Cleaning</td><td>Suits</td><td>₹200/item</td></tr>
-          <tr data-service="Dry Cleaning"><td>Dry Cleaning</td><td>Dresses</td><td>₹150/item</td></tr>
-          <tr data-service="Dry Cleaning"><td>Dry Cleaning</td><td>Coats</td><td>₹250/item</td></tr>
-          <tr data-service="Dry Cleaning"><td>Dry Cleaning</td><td>Others</td><td>₹100/item</td></tr>
-
           <tr data-service="Ironing"><td>Ironing</td><td>Shirts</td><td>₹20/item</td></tr>
-          <tr data-service="Ironing"><td>Ironing</td><td>Pants</td><td>₹20/item</td></tr>
-          <tr data-service="Ironing"><td>Ironing</td><td>Others</td><td>₹20/item</td></tr>
-
-          <tr data-service="Pickup & Delivery"><td>Pickup & Delivery</td><td>Service Charge</td><td>₹50/pickup or delivery</td></tr>
+          <tr data-service="Curtain Cleaning"><td>Curtain Cleaning</td><td>Any curtains</td><td>₹200/item</td></tr>
+          <tr data-service="Saree Polishing"><td>Saree Polishing</td><td>Any Saree</td><td>₹500/item</td></tr>
+          <tr data-service="Shoe Cleaning"><td>Shoe Cleaning</td><td>Any shoe</td><td>₹200/pair</td></tr>
+          <tr data-service="Pickup & Delivery"><td>Pickup & Delivery</td><td>Service</td><td>Completely free</td></tr>
         </tbody>
       </table>
     </div>
@@ -310,89 +93,26 @@
       <p>Email: <a href="mailto:laundryloungeservices@gmail.com">laundryloungeservices@gmail.com</a></p>
       <p>Phone: <a href="tel:+917795561808">+91 77955 61808</a></p>
       <p>Phone: <a href="tel:+917795587808">+91 77955 87808</a></p>
-      <p>
-        WhatsApp: 
-        <a href="https://wa.me/917795561808" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp icon" width="30" height="30" />
-        </a>
-      </p>
+      <p>WhatsApp: <a href="https://wa.me/917795561808" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></p>
     </div>
   </section>
 
-  <footer>
-    &copy; 2025 Laundry Lounge. All rights reserved.
-  </footer>
+  <footer>&copy; 2025 Laundry Lounge. All rights reserved.</footer>
 
   <script>
-    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('nav ul');
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      document.body.classList.toggle('menu-open');
-    });
-    // Keyboard toggle for hamburger
-    hamburger.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        hamburger.click();
-      }
-    });
-
-    // Animate services on scroll
+    hamburger.addEventListener('click', () => {navMenu.classList.toggle('open'); document.body.classList.toggle('menu-open');});
+    document.addEventListener('click', e => {if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {navMenu.classList.remove('open'); document.body.classList.remove('menu-open');}});
     const services = document.querySelectorAll('.service');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(entries => {entries.forEach(entry => {if(entry.isIntersecting){entry.target.classList.add('visible');}});}, { threshold: 0.1 });
     services.forEach(service => observer.observe(service));
-
-    // Filter pricing on clicking service
     const pricingRows = document.querySelectorAll('#pricing tbody tr');
     const resetBtn = document.getElementById('resetFilterBtn');
-
-    function showAllPricing() {
-      pricingRows.forEach(row => row.style.display = '');
-      resetBtn.style.display = 'none';
-    }
-
-    function filterPricing(serviceName) {
-      let anyShown = false;
-      pricingRows.forEach(row => {
-        if(row.dataset.service === serviceName) {
-          row.style.display = '';
-          anyShown = true;
-        } else {
-          row.style.display = 'none';
-        }
-      });
-      if(anyShown) {
-        resetBtn.style.display = 'block';
-      }
-    }
-
-    services.forEach(service => {
-      service.addEventListener('click', () => {
-        filterPricing(service.dataset.service);
-        document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});
-      });
-      service.addEventListener('keydown', e => {
-        if(e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          service.click();
-        }
-      });
-    });
-
-    resetBtn.addEventListener('click', () => {
-      showAllPricing();
-      document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});
-    });
-
-    // Initial state
+    function showAllPricing(){pricingRows.forEach(row=>row.style.display=''); resetBtn.style.display='none';}
+    function filterPricing(serviceName){let anyShown=false; pricingRows.forEach(row=>{if(row.dataset.service===serviceName){row.style.display=''; anyShown=true;}else{row.style.display='none';}}); if(anyShown){resetBtn.style.display='block';}}
+    services.forEach(service=>{service.addEventListener('click',()=>{filterPricing(service.dataset.service); document.getElementById('pricing').scrollIntoView({behavior:'smooth'});});});
+    resetBtn.addEventListener('click',()=>{showAllPricing(); document.getElementById('pricing').scrollIntoView({behavior:'smooth'});});
     showAllPricing();
   </script>
 </body>
